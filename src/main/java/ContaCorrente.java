@@ -1,6 +1,14 @@
 public class ContaCorrente {
     private double saldo;
 
+    public ContaCorrente(){
+        zeraSaldo();
+    }
+
+    private void zeraSaldo(){
+        saldo = 0;
+    }
+
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
