@@ -22,7 +22,7 @@ public class ContaCorrente {
         return getTotal();
     }
 
-    public double getSaldo() {
+    private double getSaldo() {
         return saldo;
     }
 

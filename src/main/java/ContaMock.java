@@ -31,7 +31,7 @@ public class ContaMock {
         this.saldo = saldo;
     }
 
-    public double getSaldo(){
+    private double getSaldo(){
         return saldo;
     }
 

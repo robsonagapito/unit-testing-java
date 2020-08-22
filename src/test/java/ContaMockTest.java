@@ -62,7 +62,7 @@ public class ContaMockTest {
         conta.depositarValor(valorDep);
         conta.sacarValor(valorSac);
 
-        actual = conta.getSaldo();
+        actual = conta.getTotal();
 
         //assert
         Assert.assertEquals(  expect, actual, 0);
@@ -83,7 +83,7 @@ public class ContaMockTest {
         conta.depositarValor(valorDep2);
         conta.sacarValor(valorSac);
 
-        actual = conta.getSaldo();
+        actual = conta.getTotal();
 
         //assert
         Assert.assertEquals(  expect, actual, 0);
@@ -102,7 +102,7 @@ public class ContaMockTest {
         conta.depositarValor(valorDep);
         conta.depositarValor(valorNeg);
 
-        actual = conta.getSaldo();
+        actual = conta.getTotal();
 
         //assert
         Assert.assertEquals(  expect, actual, 0);
@@ -121,7 +121,7 @@ public class ContaMockTest {
         conta.depositarValor(valorDep);
         conta.sacarValor(valorNeg);
 
-        actual = conta.getSaldo();
+        actual = conta.getTotal();
 
         //assert
         Assert.assertEquals(  expect, actual, 0);
