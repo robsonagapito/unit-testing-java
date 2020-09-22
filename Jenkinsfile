@@ -34,5 +34,6 @@ pipeline {
                         jsonReportDirectory: 'integration-testing-java/target/reports'
 
             }
+        }
     }
 }
