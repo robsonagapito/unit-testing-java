@@ -20,12 +20,19 @@ pipeline {
         stage('Integration Testing') {
             steps {
                 script {
-                    sh 'git clone https://github.com/robsonagapito/integration-testing-java.git &&
-                        cd integration-testing-java &&
-                        mvn verify'
-                    junit '**/target/*.xml'
+                    sh 'git clone https://github.com/robsonagapito/integration-testing-java.git'
+                    sh 'cd integration-testing-java'
+                    sh 'mvn verify'
+                    sh 'cd ..'
                 }
             }
         }
+        stage ('Cucumber Reports') {
+            steps {
+                    cucumber buildStatus: "UNSTABLE",
+                        fileIncludePattern: "**/CucumberReport.json",
+                        jsonReportDirectory: 'integration-testing-java/target/reports'
+
+            }
     }
 }
