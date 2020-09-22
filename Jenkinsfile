@@ -2,7 +2,7 @@ pipeline {
     agent any
     stages{
         stage('Build'){
-            step {
+            steps {
                 script{
                     sh 'mvn clean install -DskipTest'
                     archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
@@ -10,7 +10,7 @@ pipeline {
             }
         }
         stage('Unit Testing'){
-            step {
+            steps {
                 script{
                     sh 'mvn clean test'
                     junit '**/target/surefire-reports/*.xml'
