@@ -17,5 +17,22 @@ pipeline {
                 }
             }
         }
+        stage('Integration Testing') {
+            steps {
+                script {
+                    sh '[ -d integration-testing-java ] && rm -rf integration-testing-java'
+                    sh 'git clone https://github.com/robsonagapito/integration-testing-java.git'
+                    sh 'cd integration-testing-java && mvn verify'
+                }
+            }
+        }
+        stage ('Cucumber Reports') {
+            steps {
+                    cucumber buildStatus: "UNSTABLE",
+                        fileIncludePattern: "**/CucumberReport.json",
+                        jsonReportDirectory: 'integration-testing-java/target/reports'
+
+            }
+        }
     }
 }
