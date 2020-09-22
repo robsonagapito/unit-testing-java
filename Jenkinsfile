@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     sh 'mvn clean test'
-                    junit '**/target/*.xml'
+                    junit '**/target/surefire-reports/*.xml'
                 }
             }
         }
