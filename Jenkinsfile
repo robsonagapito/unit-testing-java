@@ -9,6 +9,13 @@ pipeline {
                 }
             }
         }
+        stage('SonarQube'){
+                    steps {
+                        script{
+                            sh 'comando do sonarqube'
+                        }
+                    }
+                }
         stage('Unit Testing'){
             steps {
                 script{
@@ -20,7 +27,7 @@ pipeline {
         stage('Integration Testing') {
             steps {
                 script {
-                    
+
                     sh 'git clone https://github.com/robsonagapito/integration-testing-java.git'
                     sh 'cd integration-testing-java && mvn verify'
                 }
