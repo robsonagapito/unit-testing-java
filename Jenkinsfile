@@ -20,7 +20,7 @@ pipeline {
         stage('Integration Testing') {
             steps {
                 script {
-                    sh 'if [ -d integration-testing-java ]; then rmdir integration-testing-java; fi'
+                    sh 'if [ -d integration-testing-java ]; then rmdir -rf integration-testing-java; fi'
                     sh 'git clone https://github.com/robsonagapito/integration-testing-java.git'
                     sh 'cd integration-testing-java && mvn verify'
                 }
