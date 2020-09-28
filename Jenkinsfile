@@ -4,18 +4,11 @@ pipeline {
         stage('Build'){
             steps {
                 script{
-                    sh 'mvn clean install -DskipTest'
+                    sh 'mvn clean install -DskipTests'
                     archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
                 }
             }
         }
-        stage('SonarQube'){
-                    steps {
-                        script{
-                            sh 'comando do sonarqube'
-                        }
-                    }
-                }
         stage('Unit Testing'){
             steps {
                 script{
@@ -27,7 +20,7 @@ pipeline {
         stage('Integration Testing') {
             steps {
                 script {
-
+                    sh 'if [ -d integration-testing-java ]; then rmdir integration-testing-java; fi'
                     sh 'git clone https://github.com/robsonagapito/integration-testing-java.git'
                     sh 'cd integration-testing-java && mvn verify'
                 }
