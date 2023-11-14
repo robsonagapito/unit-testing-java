@@ -4,7 +4,8 @@ pipeline {
         stage('Build'){
             steps {
                 script{
-                    sh 'mvn clean install -DskipTests'
+                    sh 'export M2_HOME=/maven && export PATH=$M2_HOME:$PATH'
+                    sh 'mvn clean install -DskipTests -Dmaven.compiler.source=1.8 -Dmaven.compiler.target=1.8'
                     archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
                 }
             }
@@ -12,7 +13,7 @@ pipeline {
         stage('Unit Testing'){
             steps {
                 script{
-                    sh 'mvn clean test'
+                    sh 'mvn test -Dmaven.compiler.source=1.8 -Dmaven.compiler.target=1.8'
                     junit '**/target/surefire-reports/*.xml'
                 }
             }
@@ -22,7 +23,7 @@ pipeline {
                 script {
                     sh 'if [ -d integration-testing-java ]; then rm -rf integration-testing-java; fi'
                     sh 'git clone https://github.com/robsonagapito/integration-testing-java.git'
-                    sh 'cd integration-testing-java && mvn verify'
+                    sh 'cd integration-testing-java && git checkout gft && mvn verify -Dmaven.compiler.source=1.8 -Dmaven.compiler.target=1.8'
                 }
             }
         }
