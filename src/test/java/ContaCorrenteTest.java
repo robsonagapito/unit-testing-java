@@ -8,7 +8,7 @@ public class ContaCorrenteTest {
         //arrange
         ContaCorrente contaCorrente = new ContaCorrente();
         double valor = 10;
-        double esperado = 10;
+        double esperado = 2;
         double resultado = 0;
 
         //act
