@@ -1,5 +1,10 @@
 pipeline {
     agent any
+
+    tools {
+        maven 'Maven Host'
+    }
+
     stages{
         stage('Build'){
             steps {
