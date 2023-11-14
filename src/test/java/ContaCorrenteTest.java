@@ -36,7 +36,7 @@ public class ContaCorrenteTest {
         ContaCorrente contaCorrente = new ContaCorrente();
         double valor = 10;
         double esperado = 10;
-        double resultado = 0;
+        double resultado = 1;
 
         //act
         resultado = contaCorrente.depositar(valor);
