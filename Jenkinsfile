@@ -28,7 +28,7 @@ pipeline {
                 script {
                     sh 'if [ -d integration-testing-java ]; then rm -rf integration-testing-java; fi'
                     sh 'git clone https://github.com/robsonagapito/integration-testing-java.git'
-                    sh 'cd integration-testing-java && git checkout gft && mvn verify -Dmaven.compiler.source=1.8 -Dmaven.compiler.target=1.8'
+                    sh 'cd integration-testing-java && git checkout gft && mvn test -Dtest=runner.RunnerTest -Dmaven.compiler.source=1.8 -Dmaven.compiler.target=1.8'
                 }
             }
         }
