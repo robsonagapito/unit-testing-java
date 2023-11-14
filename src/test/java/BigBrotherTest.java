@@ -92,7 +92,7 @@ public class BigBrotherTest {
         //Arrange
         long count = 2;
         String actual = "";
-        String expect = "Brothers empatados, reabra a votação!";
+        String expect = "Brothers empatados, reabra a votacao!";
 
         //Act
         bigBrother.adicionaBrother(nome[0]);

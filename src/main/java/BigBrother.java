@@ -55,7 +55,7 @@ public class BigBrother {
                 if (unico) {
                     res = "Brother eliminado => " + name;
                 } else {
-                    res = "Brothers empatados, reabra a votação!";
+                    res = "Brothers empatados, reabra a votacao!";
                 }
             }
         }
